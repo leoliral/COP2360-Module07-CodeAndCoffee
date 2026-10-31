@@ -12,8 +12,8 @@ class Program
 
         string choice = "";
 
-        // Repeat the menu until the user selects Exit.
-        while (choice != "7")
+        // Repeat the menu until the user selects Option 8 (Exit).
+        while (choice != "8")
         {
             Console.WriteLine("\n===== EMPLOYEE DIRECTORY =====");
             Console.WriteLine("1. Populate Dictionary");
@@ -22,8 +22,8 @@ class Program
             Console.WriteLine("4. Add a New Employee");
             Console.WriteLine("5. Add Information to an Employee");
             Console.WriteLine("6. Sort Employee IDs");
-            Console.WriteLine("7. Exit");
-            Console.WriteLine("8. Edit Employee Information");
+            Console.WriteLine("7. Edit Employee Information");
+            Console.WriteLine("8. Exit");
             Console.Write("Enter your choice: ");
 
             choice = Console.ReadLine() ?? "";
@@ -62,9 +62,13 @@ class Program
                     string removeId = Console.ReadLine() ?? "";
 
                     if (employees.Remove(removeId))
+                    {
                         Console.WriteLine("Employee removed!");
+                    }
                     else
+                    {
                         Console.WriteLine("Employee not found.");
+                    }
                     break;
 
                 case "4":
@@ -125,10 +129,6 @@ class Program
                     break;
 
                 case "7":
-                    Console.WriteLine("Goodbye!");
-                    break;
-                
-                case "8":
                     // Edit the name or position of an existing employee.
                     Console.Write("Enter Employee ID to edit: ");
                     string editId = Console.ReadLine() ?? "";
@@ -136,16 +136,19 @@ class Program
                     if (employees.ContainsKey(editId))
                     {
                         // Show the current employee information.
-                        Console.WriteLine("Current information: " + employees[editId]);
+                        Console.WriteLine(
+                            "Current information: " + employees[editId]);
 
                         Console.Write("Enter corrected name and position: ");
                         string updatedInfo = Console.ReadLine() ?? "";
 
                         if (!string.IsNullOrWhiteSpace(updatedInfo))
                         {
-                            // Replace the old value with the corrected information.
+                            // Replace the old information.
                             employees[editId] = updatedInfo;
-                            Console.WriteLine("Employee information updated successfully!");
+
+                            Console.WriteLine(
+                                "Employee information updated successfully!");
                         }
                         else
                         {
@@ -157,9 +160,14 @@ class Program
                         Console.WriteLine("Employee ID not found.");
                     }
                     break;
-    
+
+                case "8":
+                    // Exit the program.
+                    Console.WriteLine("Goodbye!");
+                    break;
 
                 default:
+                    // Handle invalid menu selections.
                     Console.WriteLine("Invalid choice. Try again.");
                     break;
             }
