@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +23,7 @@ class Program
             Console.WriteLine("5. Add Information to an Employee");
             Console.WriteLine("6. Sort Employee IDs");
             Console.WriteLine("7. Exit");
+            Console.WriteLine("8. Edit Employee Information");
             Console.Write("Enter your choice: ");
 
             choice = Console.ReadLine() ?? "";
@@ -126,6 +127,37 @@ class Program
                 case "7":
                     Console.WriteLine("Goodbye!");
                     break;
+                
+                case "8":
+                    // Edit the name or position of an existing employee.
+                    Console.Write("Enter Employee ID to edit: ");
+                    string editId = Console.ReadLine() ?? "";
+
+                    if (employees.ContainsKey(editId))
+                    {
+                        // Show the current employee information.
+                        Console.WriteLine("Current information: " + employees[editId]);
+
+                        Console.Write("Enter corrected name and position: ");
+                        string updatedInfo = Console.ReadLine() ?? "";
+
+                        if (!string.IsNullOrWhiteSpace(updatedInfo))
+                        {
+                            // Replace the old value with the corrected information.
+                            employees[editId] = updatedInfo;
+                            Console.WriteLine("Employee information updated successfully!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No changes were made.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Employee ID not found.");
+                    }
+                    break;
+    
 
                 default:
                     Console.WriteLine("Invalid choice. Try again.");
