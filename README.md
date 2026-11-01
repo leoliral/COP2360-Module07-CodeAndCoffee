@@ -29,38 +29,4 @@ The program includes eight menu options:
 2. Extract the ZIP file to your computer.
 3. Open the extracted project folder in Visual Studio Code.
 4. Open **Terminal → New Terminal**.
-5. Enter the following command:
-
-   `dotnet run`
-
-6. The Employee Directory menu will appear. Enter a number from 1 to 8 to select an option.
-
-**Requirement:** The .NET SDK must be installed.
-
-## Example
-
-After selecting Option 1 to populate the dictionary and Option 2 to display it, the program shows:
-
-```
-E101: John Smith - Dispatcher
-E103: Maria Lopez - Manager
-E102: David Brown - Driver
-```
-
-Users can then add, remove, edit, or sort employee information.
-
-## Group Members
-
-- Leonardo Lira
-- Bradley Cesar
-- Jesus Cahue
-- Alexandra Stephens
-- Landon Lappeman
-
-## Conclusion
-
-This project helped us practice using C# dictionaries to organize and manage information. We also used a switch statement to give users different options and a loop to keep the program running until they choose to exit.
-
-The program includes comments explaining how each section works.
-
-**Note:** Employee information is stored in memory and resets when the program is closed.
+5. Enter
